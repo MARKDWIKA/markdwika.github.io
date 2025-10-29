@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安可心的小说合集 - 安可心的个人博客</title>
+    <style>
+        :root {
+            --bg-color: #fef6f1;
+            --text-color: #443322;
+            --accent-color: #e67e22; /* 夕阳橙 */
+            --secondary-color: #6a4c93; /* 暗紫色 */
+            --paper-texture: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d0c0a0' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            --content-bg: rgba(255, 253, 247, 0.8);
+            --link-color: #8e44ad;
+            --hover-color: #d35400;
+            --border-color: #e8d8c3;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #2c2c34;
+            --text-color: #e0d6c9;
+            --accent-color: #ff7f50;
+            --secondary-color: #8e44ad;
+            --paper-texture: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23a09080' fill-opacity='0.3' fill-rule='evenodd'/%3E%3C/svg%3E");
+            --content-bg: rgba(44, 44, 52, 0.8);
+            --link-color: #bb86fc;
+            --hover-color: #03dac6;
+            --border-color: #4a4a55;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-image: var(--paper-texture);
+            background-attachment: fixed;
+            padding-top: 70px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .site-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin: 40px 0 30px;
+            color: var(--accent-color);
+            text-shadow: 0 0 5px rgba(230, 126, 34, 0.3),
+                         0 0 10px rgba(230, 126, 34, 0.2);
+            letter-spacing: 2px;
+            font-weight: normal;
+        }
+
+        /* 书架布局 */
+        .bookshelf {
+            background-color: var(--content-bg);
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+        }
+        
+        .shelf {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .shelf {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 10px;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .shelf {
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+                gap: 12px;
+            }
+        }
+        
+        .shelf::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background-color: #8B4513;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2) inset;
+            z-index: 1;
+        }
+        
+        /* 书籍样式 */
+        .book {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            z-index: 2;
+        }
+        
+        .book-spine {
+            width: 100%;
+            height: 200px; /* 保持标准书籍高度 */
+            background: linear-gradient(to bottom right, var(--accent-color), var(--secondary-color));
+            border-radius: 4px 0 0 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
+            transform-style: preserve-3d;
+            position: relative;
+            writing-mode: horizontal-tb !important;
+            text-orientation: mixed !important;
+            white-space: nowrap;
+            font-size: 20px; /* 调整为合适的字体大小 */
+            font-weight: bold;
+            text-align: center;
+            color: white; /* 确保文字为白色 */
+        }
+        
+        .book-spine::before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to right, #8B4513, #A0522D);
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .book:hover {
+            transform: translateY(-15px) scale(1.05);
+        }
+        
+        .book:hover .book-spine {
+            box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .book-title {
+            writing-mode: horizontal-tb;
+            text-orientation: mixed;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .collection-card {
+            background-color: var(--content-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .collection-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                            rgba(230, 126, 34, 0.2) 0%, 
+                            rgba(106, 76, 147, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .collection-card:hover::before {
+            opacity: 1;
+        }
+
+        .collection-cover {
+            height: 380px;
+            background-color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collection-cover::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffffff' fill-opacity='0.05' d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z'/%3E%3C/svg%3E");
+            background-size: 300px;
+            opacity: 0.3;
+            transition: opacity 0.3s;
+        }
+
+        .collection-card:hover .collection-cover::after {
+            opacity: 0.5;
+        }
+
+        .collection-title {
+            padding: 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--text-color);
+            text-align: center;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .collection-info {
+            padding: 15px 20px;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .collection-desc {
+            padding: 0 20px 20px;
+            font-size: 1rem;
+            color: var(--text-color);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .collection-meta {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px 20px;
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+        }
+
+        .read-btn {
+            display: block;
+            text-align: center;
+            background: linear-gradient(to bottom right, var(--accent-color), var(--secondary-color));
+            color: white;
+            padding: 10px;
+            margin: 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .read-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            margin-top: 50px;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .donate-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .donate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .copyright {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* iPhone 4 风格的翻页控件 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .pagination a {
+            display: inline-block;
+            width: 80px; /* 修改宽度从40px到80px */
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            margin: 0 5px;
+            background-color: var(--content-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 5px; /* 统一圆角 */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .pagination a::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(180deg, 
+                            rgba(255,255,255,0.1) 0%, 
+                            rgba(255,255,255,0) 100%);
+            pointer-events: none;
+        }
+
+        /* 移除以下特殊圆角设置 */
+        /*
+        .pagination a.prev {
+            border-radius: 5px 0 0 5px;
+        }
+
+        .pagination a.next {
+            border-radius: 0 5px 5px 0;
+        }
+        */
+
+        .pagination a:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 10px;
+            }
+            
+            .site-title {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 5px 10px;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+                margin: 30px 0 20px;
+            }
+            
+            .collections-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 20px;
+            }
+            
+            .collection-cover {
+                height: 320px;
+            }
+            
+            .collection-title {
+                font-size: 1.1rem;
+                padding: 15px;
+            }
+            
+            .collection-desc {
+                font-size: 0.9rem;
+                padding: 0 15px 15px;
+            }
+            
+            .footer-links a {
+                font-size: 1rem;
+                margin: 0 10px;
+            }
+        }
+
+        /* Frutiger Aero 效果 */
+        .glow-effect {
+            text-shadow: 0 0 5px rgba(230, 126, 34, 0.3),
+                         0 0 10px rgba(230, 126, 34, 0.2);
+        }
+
+        .fru-button {
+            background: linear-gradient(to bottom right, var(--accent-color), var(--secondary-color));
+            border: none;
+            border-radius: 25px;
+            padding: 8px 20px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .fru-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .fru-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+    
+        /* 修复导航栏项目间距 - 排除最后一个元素 */
+        .navbar li {
+            margin-right: 15px;
+        }
+
+        /* 基础样式变量 (浅色模式) */
+        :root {
+            --primary-gradient-start: #ff7e5f;
+            --primary-gradient-end: #feb47b;
+            --shadow-color: rgba(0,0,0,0.2);
+            --icon-color: #ffffff;
+            --background-color: transparent;
+        }
+        
+        /* 深色模式变量 */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-gradient-start: #d46c56;
+                --primary-gradient-end: #d19a7c;
+                --shadow-color: rgba(0,0,0,0.5);
+                --icon-color: #f0f0f0;
+            }
+        }
+        
+        #backToTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(
+                135deg,
+                var(--primary-gradient-start),
+                var(--primary-gradient-end)
+            );
+            box-shadow: 0 4px 12px var(--shadow-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.4s, transform 0.3s ease;
+            z-index: 999;
+            border: none;
+        }
+        
+        #backToTopBtn.visible {
+            opacity: 1;
+        }
+        
+        #backToTopBtn:hover {
+            transform: translateY(-5px) scale(1.05);
+            filter: brightness(110%);
+        }
+        
+        .arrow-icon {
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 20px solid var(--icon-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="site-title glow-effect">安可心的个人博客</div>
+        <nav>
+            <ul class="navbar">
+                <li><a href="/">首页</a></li>
+                <!-- 修复链接路径反斜杠问题 -->
+                <li><a href="/html/微信公众号.html">公众号</a></li>
+                <li>
+                    <button class="fru-button" onclick="scrollToBottom()" style="background: linear-gradient(to bottom right, #66ccff, var(--secondary-color)); border: none; border-radius: 25px; padding: 8px 20px; color: white; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); transition: all 0.3s;">支持作者</button>
+                </li>
+                <li>
+                    <button id="theme-toggle" class="theme-toggle">🌙 夜间模式</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title glow-effect">小说合集</h1>
+        
+        <div class="bookshelf">
+            <!-- 第一层书架 -->
+            <div class="shelf">
+                <!-- 小说1 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #e67e22, #d35400);">
+                        <div class="book-title">1</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说2 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #3498db, #2980b9);">
+                        <div class="book-title">2</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说3 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #9b59b6, #8e44ad);">
+                        <div class="book-title">3</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说4 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #e74c3c, #c0392b);">
+                        <div class="book-title">4</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说5 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #27ae60, #229954);">
+                        <div class="book-title">5</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说6 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #f39c12, #e67e22);">
+                        <div class="book-title">6</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说7 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #e74c3c, #c0392b);">
+                        <div class="book-title">7</div>
+                    </div>
+ 
+                </div>
+            </div>
+            
+            <!-- 第二层书架 -->
+            <div class="shelf">
+                <!-- 小说7 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #1abc9c, #16a085);">
+                        <div class="book-title">8</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说8 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #34495e, #2c3e50);">
+                        <div class="book-title">9</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说9 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #95a5a6, #7f8c8d);">
+                        <div class="book-title">10</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说10 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #f1c40f, #f39c12);">
+                        <div class="book-title">11</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说11 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #8e44ad, #7d3c98);">
+                        <div class="book-title">12</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说12 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #2980b9, #3498db);">
+                        <div class="book-title">13</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说13 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #9b59b6, #8e44ad);">
+                        <div class="book-title">14</div>
+                    </div>
+ 
+                </div>
+            </div>
+            
+            <!-- 第三层书架 -->
+            <div class="shelf">
+                <!-- 小说13 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #e67e22, #d35400);">
+                        <div class="book-title">15</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说14 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #c0392b, #e74c3c);">
+                        <div class="book-title">16</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说15 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #16a085, #1abc9c);">
+                        <div class="book-title">17</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说16 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #9b59b6, #8e44ad);">
+                        <div class="book-title">18</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说17 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #f39c12, #f1c40f);">
+                        <div class="book-title">19</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说18 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #34495e, #2c3e50);">
+                        <div class="book-title">20</div>
+                    </div>
+ 
+                </div>
+                
+                <!-- 小说19 -->
+                <div class="book">
+                    <div class="book-spine" style="background: linear-gradient(to bottom right, #f1c40f, #f39c12);">
+                        <div class="book-title">21</div>
+                    </div>
+ 
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://qm.qq.com/q/Hflp1bHI8C" target="_blank">QQ书友群</a>
+            <a href="https://space.bilibili.com/323845982" target="_blank">哔哩哔哩</a>
+            <a href="https://www.mfuns.net/member/20694" target="_blank">喵御宅</a>
+        </div>
+        <p>(感谢各位的支持)</p>
+        <a href="https://afdian.com/a/markdwika" target="_blank" class="donate-btn fru-button">爱发电</a>
+        <a href="https://patreon.com/markdwika" target="_blank" class="donate-btn fru-button">patreon</a>
+        <div class="copyright">
+            &copy; 2023—2025 安可心的个人博客 | 本站已备案 
+            <p id="copyright">
+					<a target="_blank" href=""></a>
+					<p>ICP备案号：<a href="https://beian.miit.gov.cn/" target="_blank ">冀ICP备2023006307号</a>
+					<dlv>
+					<img src="/images/备案图标.png" alt="备案图标" style="width: 1em; height: 1em;" />	
+					<a href="https://beian.mps.gov.cn/#/query/webSearch?code=13090202000584" rel="noreferrer" target="_blank">冀公网安备13090202000584号</a>
+                    </p>
+					</dlv>
+				</p>
+        </div>
+    </footer>
+
+        <button id="backToTopBtn" title="返回顶部" aria-label="返回顶部">
+        <div class="arrow-icon"></div>
+        </button>
+
+    <script>
+        // 白天黑夜模式切换
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // 检查本地存储中的主题设置
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️ 白天模式';
+        }
+        
+        // 切换主题
+        themeToggle.addEventListener('click', function() {
+            if (document.body.getAttribute('data-theme') === 'dark') {
+                document.body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                this.textContent = '🌙 夜间模式';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                this.textContent = '☀️ 白天模式';
+            }
+        });
+
+                function scrollToBottom() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+
+         const backToTopBtn = document.getElementById('backToTopBtn');
+        
+        // 显示/隐藏按钮
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // 平滑滚动到顶部
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

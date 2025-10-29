@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安可心的微信公众号</title>
+    <style>
+        /* 默认亮色模式变量 */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --button-bg: #f0f0f0;
+            --button-text: #333333;
+        }
+
+        /* 暗色模式变量 */
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --button-bg: #333333;
+            --button-text: #e0e0e0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle">切换到暗色模式</button>
+    <h1>我的微信公众号</h1>
+    
+    <!-- 图片展示区域 -->
+    <div>
+        <img src="/images/wxgzh.png" alt="安可心deusvitae" width="480">
+    </div>
+    
+    <h3>打开搜一搜，搜索：安可心deusvitae</h3>
+    
+    <p>（为了方便复制搜索特地把公众号名写了出来，嘿嘿。）</p>
+
+    <h3>或者扫描上方二维码关注我的微信公众号即可关注我的更新。</h3>
+
+    <p>（如果搜一搜没有搜索到，也可以直接扫描二维码关注。）</p>
+    <p>（以及，二维码感觉太小的话，电脑端可以按ctrl+鼠标滚轮缩放。手机端可以双指放大截图。）</p>
+    <p>（最后，欢迎关注我的微信公众号，我会不定期分享我的最新作品。）</p>
+
+    <script>
+        // 检查用户偏好或本地存储的主题设置
+        const savedTheme = localStorage.getItem('theme') || 
+                          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+        // 应用保存的主题
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.getElementById('themeToggle').textContent = '切换到亮色模式';
+        }
+
+        // 主题切换按钮事件
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            this.textContent = newTheme === 'dark' ? '切换到亮色模式' : '切换到暗色模式';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安可心的个人博客</title>
+    <style>
+        :root {
+            --bg-color: #fef6f1;
+            --text-color: #443322;
+            --accent-color: #e67e22; /* 夕阳橙 */
+            --secondary-color: #6a4c93; /* 暗紫色 */
+            --paper-texture: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d0c0a0' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            --content-bg: rgba(255, 253, 247, 0.8);
+            --link-color: #8e44ad;
+            --hover-color: #d35400;
+            --border-color: #e8d8c3;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #2c2c34;
+            --text-color: #e0d6c9;
+            --accent-color: #ff7f50;
+            --secondary-color: #8e44ad;
+            --paper-texture: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23a09080' fill-opacity='0.3' fill-rule='evenodd'/%3E%3C/svg%3E");
+            --content-bg: rgba(44, 44, 52, 0.8);
+            --link-color: #bb86fc;
+            --hover-color: #03dac6;
+            --border-color: #4a4a55;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-image: var(--paper-texture);
+            background-attachment: fixed;
+            padding-top: 70px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .site-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        main {
+            margin-top: 100px;
+            padding: 30px;
+            background-color: var(--content-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+        }
+
+        .post {
+            margin-bottom: 60px;
+        }
+
+        .post-title {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .post-meta {
+            text-align: center;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+
+        .post-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .post-content h2 {
+            color: var(--secondary-color);
+            margin: 30px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .donate-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .donate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .copyright {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 10px;
+            }
+            
+            .site-title {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 5px 10px;
+            }
+            
+            main {
+                margin-top: 130px;
+                padding: 20px;
+            }
+            
+            .post-title {
+                font-size: 1.6rem;
+            }
+            
+            .post-content {
+                font-size: 1rem;
+            }
+            
+            footer {
+                padding: 20px 10px;
+            }
+        }
+
+        /* Frutiger Aero 效果 */
+        .glow-effect {
+            text-shadow: 0 0 5px rgba(230, 126, 34, 0.3),
+                         0 0 10px rgba(230, 126, 34, 0.2);
+        }
+
+        .fru-button {
+            background: linear-gradient(to bottom right, var(--accent-color), var(--secondary-color));
+            border: none;
+            border-radius: 25px;
+            padding: 8px 20px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .fru-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+          /* 基础样式变量 (浅色模式) */
+        :root {
+            --primary-gradient-start: #ff7e5f;
+            --primary-gradient-end: #feb47b;
+            --shadow-color: rgba(0,0,0,0.2);
+            --icon-color: #ffffff;
+            --background-color: transparent;
+        }
+        
+        /* 深色模式变量 */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-gradient-start: #d46c56;
+                --primary-gradient-end: #d19a7c;
+                --shadow-color: rgba(0,0,0,0.5);
+                --icon-color: #f0f0f0;
+            }
+        }
+        
+        #backToTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(
+                135deg,
+                var(--primary-gradient-start),
+                var(--primary-gradient-end)
+            );
+            box-shadow: 0 4px 12px var(--shadow-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.4s, transform 0.3s ease;
+            z-index: 999;
+            border: none;
+        }
+        
+        #backToTopBtn.visible {
+            opacity: 1;
+        }
+        
+        #backToTopBtn:hover {
+            transform: translateY(-5px) scale(1.05);
+            filter: brightness(110%);
+        }
+        
+        .arrow-icon {
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 20px solid var(--icon-color);
+        }
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="site-title glow-effect">安可心的个人博客</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="html\微信公众号.html">公众号</a></li>
+                <li><!-- 添加li包裹按钮以统一布局 -->
+                    <button onclick="scrollToBottom()" style="background: linear-gradient(to bottom right, #66ccff, var(--secondary-color)); border: none; border-radius: 25px; padding: 8px 20px; color: white; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); transition: all 0.3s; margin: 0 8px; /* 统一间距 */">支持作者</button>
+                </li>
+                <li>
+                    <button id="theme-toggle" class="theme-toggle">🌙 夜间模式</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <article class="post">
+            <h1 class="post-title glow-effect" style="margin-top: 20px;">欢迎来到我的小说网站</h1>
+            <div class="post-meta">发布于：2010年1月1日（假的） | 分类：中式旧核（梦核）</div>
+            <div class="post-content">
+                <p>以下是我的小说。我将书写我心中的故事，为了把自己无尽的想法表达出来。</p>
+                <div style="text-align: center;">
+                    <a href="小说/合集.html" class="donate-btn fru-button">小说合集</a>
+                </div>
+                <h2>个人介绍</h2>
+                <p>我是一个什么样的人？也就是说，我这个作者是怎样的，很多人会有这个好奇，嗯，告诉各位也无妨。（肯定会有人说：谁问你了【夹着阴阳怪气的语气】，哈哈，或许是另一个自己问的。）</p>
+                
+                <p>我呀，总是一个人，能经常与我交流的，只有我自己。我是一个活在中式旧核（梦核）里的人，是一个旧时代的残党。</p>
+                
+                <p>我每天至少有97%的时间与自己对话，从小到大都是如此。在别人与我对话的时候，我就在想着，接下来祂会说什么呢？然后“我”会模仿祂，与自我进行交流，让自己揣测祂接下来的行动。</p>
+                
+                <p>我注重与自我和本我的交流，有时会以不同的称呼去称呼“对方”（自己），表面上，我还是有些社恐；实际上另一个我，已经有些癫狂了。</p>
+
+                <p>我有时会称呼自己为“他”，也会叫自己安可心，或者是自己的本名（安可心不是我的本名），亦或者是其他的称呼。我有时因为过于孤独，甚至会有一点自恋；我不喜欢与朋友交往，这会损害与另一个我之间的交流；以及我无法跟集体相处好，所以我或许不会加入任何单位或组织。我不希望给任何人带来麻烦，虽然有时候总是事与愿违。</p>
+
+                <p>（虽然，现在这种情况已经好很多了，但本人还是挺孤独的，或许，就这样吧。）</p>
+            </div>
+        </article>
+
+        <article class="post">
+            <h1 class="post-title glow-effect">小小的声明</h1>
+            <div class="post-meta">发布于：2011年1月1日（假的） | 分类：Frutiger Aero 美学</div>
+            <div class="post-content">
+                <p>我为什么要告诉自己的情况呢？很简单，因为作者的脑洞很大，奇异古怪的想法充斥在自己脑中，表达欲很旺盛；以及，能让更多的读者阅读小说的时候能减少对作者的质疑，以及，“人家”（我有时也会称呼自己为人家）精神上也是沾点问题，我不想治疗，否则自己太寂寞了。“他”呢，你就理解“他”吧。</p>
+                
+                <p>对了，提醒一下，我不仅在本网站这里更新小说，我会将小说文章发布到微信公众号和喵御宅上。（底栏有友情链接）</p>
+                
+                <h2>最后的最后</h2>
+                <p>告诉各位，本网站是用ai（腾讯元宝）生成的，同时我也对它进行了一大部分的修改，网站风格是采用中式旧核（梦核）的风格，沾点千禧年的味道，且加入了Frutiger Aero设计美学。背景采用了纸张纹理，保持点真实感。</p>
+                
+                <p>白天黑夜模式我尽量让它适配了浏览器插件“dark reader”，但效果可能不怎么好，有可能会出现黑夜模式+插件黑夜模式造成的高饱和度反色效果，可以尝试打开插件，检测该网站的白天黑夜模式，以解决这个问题。（实在不行就把插件关了即可）</p>
+            </div>
+        </article>
+    </main>
+
+    <button id="backToTopBtn" title="返回顶部" aria-label="返回顶部">
+        <div class="arrow-icon"></div>
+    </button>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://qm.qq.com/q/Hflp1bHI8C" target="_blank">QQ书友群</a>
+            <a href="https://space.bilibili.com/323845982" target="_blank">哔哩哔哩</a>
+            <a href="https://www.mfuns.net/member/20694" target="_blank">喵御宅</a>
+        </div>
+        <p>(感谢各位的支持)</p>
+        <a href="https://afdian.com/a/markdwika" target="_blank" class="donate-btn fru-button">爱发电</a>
+        <a href="https://patreon.com/markdwika" target="_blank" class="donate-btn fru-button">patreon</a>
+        <div class="copyright">
+            &copy; 2023—2025 安可心的个人博客 | 本站已备案 
+            <p id="copyright">
+					<a target="_blank" href=""></a>
+					<p>ICP备案号：<a href="https://beian.miit.gov.cn/" target="_blank ">冀ICP备2023006307号</a>
+					<dlv>
+					<img src="/images/备案图标.png" alt="备案图标" style="width: 1em; height: 1em;" />	
+					<a href="https://beian.mps.gov.cn/#/query/webSearch?code=13090202000584" rel="noreferrer" target="_blank">冀公网安备13090202000584号</a>
+                    </p>
+					</dlv>
+				</p>
+        </div>
+    </footer>
+
+    <script>
+        // 白天黑夜模式切换
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // 检查本地存储中的主题设置
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️ 白天模式';
+        }
+        
+        // 切换主题
+        themeToggle.addEventListener('click', function() {
+            if (document.body.getAttribute('data-theme') === 'dark') {
+                document.body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                this.textContent = '🌙 夜间模式';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                this.textContent = '☀️ 白天模式';
+            }
+        });
+
+                function scrollToBottom() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+
+                const backToTopBtn = document.getElementById('backToTopBtn');
+        
+        // 显示/隐藏按钮
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // 平滑滚动到顶部
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
+<style>
+    nav ul li {
+        display: inline-block; /* 确保水平排列 */
+        margin: 0 10px; /* 统一所有导航项间距 */
+    }
+    nav ul li button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        background: linear-gradient(to bottom right, #55bbdd, var(--secondary-color));
+    }
+</style>
