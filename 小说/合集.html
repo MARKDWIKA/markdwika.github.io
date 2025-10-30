@@ -407,6 +407,12 @@
             opacity: 0.8;
         }
 
+        /* 移动端间距块 */
+        .mobile-spacer {
+            display: none;
+            height: 0;
+        }
+
         /* iPhone 4 风格的翻页控件 */
         .pagination {
             display: flex;
@@ -480,6 +486,12 @@
             
             nav li {
                 margin: 5px 10px;
+            }
+            
+            /* 移动端间距块显示 */
+            .mobile-spacer {
+                display: block;
+                height: 80px;
             }
             
             .page-title {
@@ -622,6 +634,9 @@
             </ul>
         </nav>
     </header>
+
+    <!-- 移动端标题间距块 -->
+    <div class="mobile-spacer"></div>
 
     <main class="container">
         <h1 class="page-title glow-effect">小说合集</h1>
